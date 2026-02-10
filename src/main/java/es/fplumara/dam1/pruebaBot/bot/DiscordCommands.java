@@ -1,4 +1,4 @@
-package es.fplumara.dam1.bot;
+package es.fplumara.dam1.pruebaBot.bot;
 
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
