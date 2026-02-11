@@ -1,4 +1,5 @@
 package es.fplumara.dam1.pruebaBot.model;
 
-public class LogMode {
+public enum LogMode {
+    TXT,CSV
 }

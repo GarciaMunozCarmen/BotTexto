@@ -23,15 +23,20 @@ public class BotMain {
                 .build()
                 .awaitReady();
 
+        // CREA EL AppConfig
+
+
+
+
         // 3) Registramos slash commands
-        var guild = jda.getGuildById(GUILD_ID);
-        if (guild == null) {
-
-            throw new IllegalStateException("No encuentro el guild con id " + GUILD_ID);
-        }
-
-        guild.upsertCommand("ping","Pasa la bola!").queue();
-        guild.upsertCommand("hora","Devuelve la hora") .addOption(OptionType.STRING, "zone", "Lugar del mundo").queue();
+//        var guild = jda.getGuildById(GUILD_ID);
+//        if (guild == null) {
+//
+//            throw new IllegalStateException("No encuentro el guild con id " + GUILD_ID);
+//        }
+//
+//        guild.upsertCommand("ping","Pasa la bola!").queue();
+//        guild.upsertCommand("hora","Devuelve la hora") .addOption(OptionType.STRING, "zone", "Lugar del mundo").queue();
 
     }
 }
