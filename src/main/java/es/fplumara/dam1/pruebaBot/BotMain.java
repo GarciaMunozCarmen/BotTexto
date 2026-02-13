@@ -26,9 +26,6 @@ public class BotMain {
 
         // CREA EL AppConfig
 
-
-
-
         // 3) Registramos slash commands
         var guild = jda.getGuildById(GUILD_ID);
         if (guild == null) {

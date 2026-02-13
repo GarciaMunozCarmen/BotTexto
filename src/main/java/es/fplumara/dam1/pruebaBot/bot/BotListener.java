@@ -1,7 +1,11 @@
 package es.fplumara.dam1.pruebaBot.bot;
 
+import es.fplumara.dam1.pruebaBot.config.AppConfig;
+import es.fplumara.dam1.pruebaBot.model.LogEntry;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
+
+import java.time.LocalDateTime;
 
 public class BotListener extends ListenerAdapter {
     @Override
@@ -11,21 +15,14 @@ public class BotListener extends ListenerAdapter {
 
         String mensaje = event.getMessage().getContentRaw();
         String usuario = event.getAuthor().getName();
+        String channelId = event.getChannel().getId();
 
+        if(mensaje.startsWith("!")){
+            //REGISTRAR COMANDO
+        } else if (AppConfig.getInstance().isLogsEnabled()) {
+            LogEntry logEntry = new LogEntry(LocalDateTime.now(), usuario, mensaje, channelId);
+        }
 
 //        System.out.println(event.getChannel().getName()+" - " +usuario + ": " + mensaje);
-//        switch(event.getName()) {
-//            case "ping":
-//                event.reply("pong!").queue();
-//
-//            case "hora" :
-//                String zoneId = event.getOption("zone").getAsString();
-//                Date date = new Date();
-//                DateFormat df = new SimpleDateFormat("HH:mm:ss");
-//                df.setTimeZone(TimeZone.getTimeZone(zoneId));
-//                String horaFormateada = df.format(date);
-//                event.reply(horaFormateada).queue();
-//
-//        }
     }
 }

@@ -35,7 +35,7 @@ public class AppConfig {
     }
 
     //METODOS
-    void load(){
+    public void load(){
         try {
             InputStream in = Files.newInputStream(PATH);
             props.load(in);
@@ -49,7 +49,7 @@ public class AppConfig {
             System.out.println("Error con el fichero de configuración");
         }
     }
-    void save(){
+    public void save(){
         props.setProperty("logs.enable", String.valueOf(logsEnabled));
         props.setProperty("logs.dir", logsDir);
         props.setProperty("logs.mode", String.valueOf(logsMode));

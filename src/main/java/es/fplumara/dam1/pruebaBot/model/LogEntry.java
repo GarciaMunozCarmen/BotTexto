@@ -6,6 +6,6 @@ public record LogEntry(
         LocalDateTime timestamp,
         String author,
         String content,
-        long channelId) {
+        String channelId) {
 
 }
