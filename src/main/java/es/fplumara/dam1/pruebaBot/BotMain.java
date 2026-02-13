@@ -18,7 +18,8 @@ public class BotMain {
         }
 
         // 2) Arrancamos JDA
-        JDA jda = JDABuilder.createDefault(token, GatewayIntent.MESSAGE_CONTENT)
+        JDA jda = JDABuilder.createDefault(token)
+                .enableIntents(GatewayIntent.MESSAGE_CONTENT)
                 .addEventListeners(new DiscordCommands())
                 .build()
                 .awaitReady();
@@ -29,14 +30,13 @@ public class BotMain {
 
 
         // 3) Registramos slash commands
-//        var guild = jda.getGuildById(GUILD_ID);
-//        if (guild == null) {
-//
-//            throw new IllegalStateException("No encuentro el guild con id " + GUILD_ID);
-//        }
-//
-//        guild.upsertCommand("ping","Pasa la bola!").queue();
-//        guild.upsertCommand("hora","Devuelve la hora") .addOption(OptionType.STRING, "zone", "Lugar del mundo").queue();
+        var guild = jda.getGuildById(GUILD_ID);
+        if (guild == null) {
+            throw new IllegalStateException("No encuentro el guild con id " + GUILD_ID);
+        }
+
+        guild.upsertCommand("ping","Pasa la bola!").queue();
+        guild.upsertCommand("hora","Devuelve la hora") .addOption(OptionType.STRING, "zone", "Lugar del mundo").queue();
 
     }
 }
